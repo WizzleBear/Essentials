@@ -508,6 +508,16 @@ command-cooldown-persistence: true
 # NPC balances can include features like factions from FactionsUUID plugin.
 npcs-in-balance-ranking: false
 
+# /baltop customization
+# Numbering color
+balPosColor: '&7'
+
+# Name color
+balNameColor: '&c'
+
+# Money color
+balColor: '&6'
+
 # Allow bulk buying and selling signs when the player is sneaking.
 # This is useful when a sign sells or buys one item at a time and the player wants to sell a bunch at once.
 allow-bulk-buy-sell: true
