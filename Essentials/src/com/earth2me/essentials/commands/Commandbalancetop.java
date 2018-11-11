@@ -105,7 +105,7 @@ public class Commandbalancetop extends EssentialsCommand {
                                 final BigDecimal userMoney = user.getMoney();
                                 user.updateMoneyCache(userMoney);
                                 totalMoney = totalMoney.add(userMoney);
-                                final String name = user.isHidden() ? user.getName() : user.getDisplayName();
+                                final String name = user.isHidden() ? user.getName();
                                 balances.put(name, userMoney);
                             }
                         }
@@ -122,7 +122,10 @@ public class Commandbalancetop extends EssentialsCommand {
                     cache.getLines().add(tl("serverTotal", NumberUtil.displayCurrency(totalMoney, ess)));
                     int pos = 1;
                     for (Map.Entry<String, BigDecimal> entry : sortedEntries) {
-                        cache.getLines().add(pos + ". " + entry.getKey() + ", " + NumberUtil.displayCurrency(entry.getValue(), ess));
+                        numColor = ChatColor.translateAlternateColorCodes('&', getConfig().getString("balPosColor"));
+                        nameColor = ChatColor.translateAlternateColorCodes('&', getConfig().getString("balNameColor"));
+                        balColor = ChatColor.translateAlternateColorCodes('&', getConfig().getString("balColor"));
+                        cache.getLines().add(numColor + pos + ". " + nameColor + entry.getKey() + ", " + balColor +NumberUtil.displayCurrency(entry.getValue(), ess));
                         pos++;
                     }
                     cacheage = System.currentTimeMillis();
